@@ -59,13 +59,12 @@ int main(int argc, char *argv[]) {
 		unsigned char buffer[buf_size+1];
 		int write_result = 0;
 		int bytes_read = 1;
-		while (bytes_read > 0)
-		{
+		while (bytes_read > 0) {
 			bytes_read = read(file_desc, buffer+1, buf_size);
-                        if(bytes_read < 0) {
-                                fprintf(stderr, "Error receiving from link layer\n");
-                                break;
-                        }
+			if(bytes_read < 0) {
+				fprintf(stderr, "Error receiving from link layer\n");
+				break;
+			}
 			else if (bytes_read > 0) {
 				// continue sending data
 				buffer[0] = 1;
