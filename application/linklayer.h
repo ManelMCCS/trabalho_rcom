@@ -19,6 +19,8 @@ typedef struct linkLayer{
     int timeOut;
 } linkLayer;
 
+#define PRINT_V(VECTOR, SIZE_OF_V) for(size_t i = 0; i < SIZE_OF_V; i++) printf("%x ", VECTOR[i]); printf("\n");
+
 //ROLE
 #define NOT_DEFINED -1
 #define TRANSMITTER 0
@@ -41,12 +43,14 @@ typedef struct linkLayer{
 // Opens a conection using the "port" parameters defined in struct linkLayer, returns "-1" on error and "1" on sucess
 int llopen(linkLayer connectionParameters);
 // Sends data in buf with size bufSize
-int llwrite(char* buf, int bufSize, linkLayer *connectionParameters);
+int llwrite(char* buf, int bufSize);
 // Receive data in packet
 int llread(char* packet);
 // Closes previously opened connection; if showStatistics==TRUE, link layer should print statistics in the console on close
 int llclose(int showStatistics);
 
+char *destuffing(char *input, size_t input_size, size_t * destuffed_size);
+char *stuffing(char *input, size_t input_size, size_t *stuffed_size);
 
 #endif
 

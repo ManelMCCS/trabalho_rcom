@@ -46,8 +46,7 @@ void atende()
     alarmeCount++;
 }
 
-int llopen(linkLayer connectionParameters)
-{
+int llopen(linkLayer connectionParameters) {
     //int res;
     struct termios oldtio, newtio;
     //char buf[255];
